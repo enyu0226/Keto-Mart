@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Order Summary</h5>
+    <p class="card-text">
+      You have {{ cart.totalItemsCount }} items in your cart
+    </p>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let item of cart.items" class="list-group-item">
+        {{ item.quantity }} X {{ item.title }}
+        <div class="float-right">
+          {{ item.totalPrice | currency: "USD":true }}
+        </div>
+      </li>
+      <li class="list-group-item font-weight-bold" *ngIf="cart.items.length">
+        <div class="float-right" *ngIf="cart.discount.isCouponApplied">
+          <div class="text-danger">
+            Discount &nbsp;&nbsp;&nbsp;&nbsp;-
+            {{ cart.totalDiscount | currency: "USD":true }}
+          </div>
+          <div>
+            Order Total
+            {{ cart.totalPriceAferDiscount | currency: "USD":true }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

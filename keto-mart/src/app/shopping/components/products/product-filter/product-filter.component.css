@@ -1,0 +1,7 @@
+.sticky-top {
+  top: 80px;
+}
+.list-group-item.active {
+  background-color: #fa8072;
+  border-color: #fa8072;
+}
